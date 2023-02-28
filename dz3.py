@@ -13,32 +13,32 @@
 # Попробуйте сделать задачу через свой алгоритм и через метод .count(). Оцените скорость работы.
 
 
-# from datetime import datetime
-# import time
-# N= int(input("Введите число элементов N: "))
-# import random
-# list = [random.randrange(100) for _ in range(N)]
-# print(list)
+from datetime import datetime
+import time
+N= int(input("Введите число элементов N: "))
+import random
+list = [random.randrange(100) for _ in range(N)]
+print(list)
 
-# start_time = datetime.now()
-# X = int(input("Введите число от 0 до 100, которое ищем в массиве: "))
-# count = 0
-# for i in range(N):
-#     if X == list[i]:
-#         count+=1
-# print("В массиве число встречается ", count, "раз")
-# time.sleep(5)
+start_time = datetime.now()
+X = int(input("Введите число от 0 до 100, которое ищем в массиве: "))
+count = 0
+for i in range(N):
+    if X == list[i]:
+        count+=1
+print("В массиве число встречается ", count, "раз")
+time.sleep(5)
 
-# print(datetime.now() - start_time, " - время для первого способа")
+print(datetime.now() - start_time, " - время для первого способа")
 
-# start_time = datetime.now()
-# count1=list.count(X)
-# time.sleep(5)
+start_time = datetime.now()
+count1=list.count(X)
+time.sleep(5)
 
 
 
-# print("Другим способом получается", count1)    
-# print(datetime.now() - start_time, "- время для второго способа")
+print("Другим способом получается", count1)    
+print(datetime.now() - start_time, "- время для второго способа")
 
 
 
@@ -54,21 +54,22 @@
 #     6
 #     -> 5
 
-# N= int(input("Введите число элементов N: "))
-# import random
+N= int(input("Введите число элементов N: "))
+import random
 
-# list = [random.randrange(100) for _ in range(N)]
-# print(list)
-# X = int(input("Введите число X от 0 до 99: "))
-# min = N
-# for i in range(N):
-#     ifmin=abs(list[i] - X)
-#     if ifmin < min:
-#         min = ifmin
-#         U = list[i]
-#     if min ==0:
-#         break
-# print(U, " - наиболее близкое число к заданному")
+list = [random.randrange(100) for _ in range(N)]
+print(list)
+X = int(input("Введите число X от 0 до 99: "))
+min = N
+for i in range(N):
+    ifmin=abs(list[i] - X)
+    if ifmin < min:
+        min = ifmin
+        U = list[i]
+    if min ==0:
+        break
+print(U, " - наиболее близкое число к заданному")
+
 # *Задача 20: * В настольной игре Скрабл (Scrabble)
 #  каждая буква имеет определенную ценность. 
 # В случае с английским алфавитом очки распределяются так:
@@ -87,3 +88,20 @@
 
 # ноутбук
 #     12
+
+d_eng =  {'AEIOULNSTR': 1, 'DG': 2, 'BCMP': 3, 'FHVWY': 4, 'K': 5, 'JX': 8, 'QZ': 10}
+d_rus = {'АВЕИНОРСТ': 1,'ДКЛМПУ': 2,'БГЁЬЯ':3, 'ЙЫ': 4, 'ЖЗХЦЧ':5, 'ЦЭЮ': 8, "ФЦЪ":10}
+print(d_eng,  d_rus)
+word=input('Введите слово: ').upper()
+sum=0
+print(word)
+dict = d_eng | d_rus
+
+
+for s in word:
+    for t in dict.keys():
+    
+        if s in t:
+            sum = sum+ dict[t]
+
+print("Ваши очки", sum)
