@@ -23,7 +23,5 @@ def read_last(lines, file):
         else:
             print('Количество строк может быть только целым положительным')
  
- 
-# Тесты
 read_last(3, 'article.txt')
 read_last(-5, 'article.txt')
